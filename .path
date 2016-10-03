@@ -1,0 +1,27 @@
+# Homebrew
+export PATH="/usr/local/bin:$PATH"
+export PATH="/usr/local/sbin:$PATH"
+
+# Pour moi
+export PATH="/Users/cmontrois/.bin:$PATH"
+
+# Rust
+export PATH="/Users/cmontrois/.cargo/bin:$PATH"
+
+# Composer
+export PATH="/Users/cmontrois/.composer/vendor/bin:$PATH"
+
+# PHP 5.6
+export PATH="$(brew --prefix php56)/bin:$PATH"
+
+# Haxe
+export HAXE_STD_PATH="/usr/local/lib/haxe/std"
+
+# NVM
+export NVM_DIR="/Users/cmontrois/.nvm/usr/local/opt/nvm/nvm.sh"
+[ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"  # This loads nvm
+
+# fzf / ripgrep
+export FZF_DEFAULT_COMMAND='rg --files --no-ignore --hidden --follow --glob "!.git/*"'
+
+export vi_cv_path_python=/usr/local/bin/python

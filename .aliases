@@ -1,0 +1,8 @@
+alias g="git"
+alias s="slack"
+alias la="ls -a"
+
+alias brewgrade="brew update --all && brew upgrade && brew cleanup"
+alias upgradeall="slack update-tools && brewgrade"
+
+alias z="fasd_cd -d"

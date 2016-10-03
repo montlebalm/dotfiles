@@ -1,0 +1,42 @@
+[credential]
+  helper = osxkeychain
+[user]
+  email = cmontrois@slack-corp.com
+  name = Chris Montrois
+[push]
+  default = current
+[fetch]
+  prune = true
+[rerere]
+  enabled = true
+[alias]
+  st = status
+  ci = commit
+  co = checkout
+  ca = commit -am
+  po = push origin master
+  purr = pull --rebase
+  diffw = diff --ignore-space-at-eol
+  dc = diff -cached
+  lg = log --abbrev-commit --date=relative --graph --pretty='format:%C(yellow)%h%d%Creset %s %C(black)(%C(cyan)%aN%Creset %C(black)<%C(cyan)%aE%C(black)>, %C(cyan)%cr%C(black)) %C(magenta)%G?%Creset'
+  prunelocal = branch -r '| awk "{print $1}" | egrep -v -f /dev/fd/0 <(git branch -vv | grep origin) | awk "{print $1}" | xargs git branch -d'
+[core]
+  excludesfile = ~/.gitignore
+	editor = vim
+[mergetool "Kaleidoscope"]
+	cmd = ksdiff --merge --output \"$MERGED\" --base \"$BASE\" -- \"$LOCAL\" --snapshot \"$REMOTE\" --snapshot
+	trustexitcode = true
+[merge]
+	tool = Kaleidoscope
+[difftool "Kaleidoscope"]
+	cmd = ksdiff --partial-changeset --relative-path \"$MERGED\" -- \"$LOCAL\" \"$REMOTE\"
+[difftool]
+	prompt = false
+[mergetool]
+	prompt = false
+[diff]
+	tool = Kaleidoscope
+[filter "lfs"]
+	clean = git-lfs clean %f
+	smudge = git-lfs smudge %f
+	required = true

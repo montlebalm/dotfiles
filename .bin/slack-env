@@ -1,0 +1,3 @@
+#!/bin/bash
+
+open https://tinyspeck.dev$1.slack.com/$2

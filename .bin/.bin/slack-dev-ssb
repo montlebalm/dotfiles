@@ -1,0 +1,3 @@
+#!/bin/bash
+
+/Applications/Slack\ 2.0.3.app/Contents/MacOS/Slack -devEnv dev$1

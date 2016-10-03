@@ -1,0 +1,12 @@
+.local.vimrc
+.vimrc
+.agignore
+.tern-project
+.env
+
+.editorconfig
+
+project.xcworkspace/
+xcuserdata/
+
+node_modules/

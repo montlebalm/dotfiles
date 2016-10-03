@@ -1,0 +1,3 @@
+# Fix weird reporting of home directory on Slack laptop
+# e.g., reports as "/Users/cmontrois/"
+export HOME="/Users/$(whoami)"
