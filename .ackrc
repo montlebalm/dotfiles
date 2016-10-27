@@ -1,0 +1,33 @@
+# Search
+--type-add=js=.jst,.json
+--type-set=coffee=.coffee
+
+--type-set=cucumber=.feature
+
+--type-set=smarty=.txt
+
+--type-add=html=.haml
+--type-set=haml=.haml
+
+--type-set=less=.less
+--type-set=sass=.sass,.scss
+--type-add=css=.sass,.scss,.less
+
+# Don't Search
+--ignore-directory=is:log
+--ignore-directory=is:tags
+--ignore-directory=is:tmp
+--ignore-directory=is:node_modules
+--ignore-directory=is:dist
+--ignore-directory=is:platforms
+--ignore-directory=is:bower_components
+--ignore-directory=is:vendor
+--ignore-directory=is:coverage
+--ignore-directory=is:images
+--ignore-directory=is:uploads
+
+# Default options
+--color
+--follow
+--group
+--sort-files
