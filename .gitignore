@@ -2,6 +2,7 @@
 
 # Local-only settings
 .private
+.nvim.lua
 
 # Temp
 .config/nvim_me/
