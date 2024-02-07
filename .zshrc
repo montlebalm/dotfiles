@@ -5,6 +5,9 @@ source ~/.path
 source ~/.aliases
 source ~/.exports
 
+# Local only config
+source ~/.private
+
 # Source prompt
 source ~/.zsh_prompt_pure
 

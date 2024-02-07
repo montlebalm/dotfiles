@@ -17,6 +17,16 @@ return {
 		},
 	},
 
+	{
+		"klen/nvim-config-local",
+		opts = {}
+	},
+
+	-- Pathing
+	{
+		'PsychoLlama/further.vim',
+	},
+
 	-- Formatting
 	{
 		"stevearc/conform.nvim",
