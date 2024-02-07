@@ -1,0 +1,13 @@
+# Homebrew
+export PATH="/opt/homebrew/bin:$PATH"
+export PATH="/opt/homebrew/sbin:$PATH"
+export PATH="/opt/homebrew/opt/node/bin:$PATH"
+
+# Pure prompt
+fpath+=("$HOME/.config/zsh/pure/functions")
+
+# Local user scripts
+# export PATH="/Users/monty/.bin:$PATH"
+
+# fzf / ripgrep
+export FZF_DEFAULT_COMMAND='rg --files --no-ignore --hidden --follow --glob "!.git/*"'

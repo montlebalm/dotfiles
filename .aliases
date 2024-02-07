@@ -1,0 +1,35 @@
+alias la="ls -a"
+
+#
+# fzf
+#
+
+alias z="fasd_cd -d"
+
+#
+# Git
+#
+
+alias g="git"
+
+# List git branches
+alias branches="git for-each-ref --sort=-committerdate --count=10 --format='%(refname:short)' refs/heads/"
+
+git-recent() {
+	PS3='🔀 Select a branch: ';
+	select b in `branches`;
+	do
+		echo "";
+		git checkout $b;
+		echo "";
+		break;
+	done
+}
+
+#
+# Neovim
+#
+
+alias nvim-init="nvim ~/.config/nvim/init.lua"
+alias nvim-update="brew upgrade neovim && nvim --headless +PlugUpgrade +PlugUpdate +qa"
+alias nvim-snippets="nvim ~/.config/nvim/luasnips"

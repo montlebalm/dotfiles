@@ -1,0 +1,46 @@
+[credential]
+  helper = osxkeychain
+[user]
+	email = chrismontrois@gmail.com
+	name = Chris Montrois
+[push]
+	default = current
+[fetch]
+  prune = true
+[rerere]
+  enabled = true
+[alias]
+  st = status
+  ci = commit
+  co = checkout
+  ca = commit -am
+  po = push origin main
+  purr = pull --rebase
+  diffw = diff --ignore-space-at-eol
+  dc = diff -cached
+  lg = log --abbrev-commit --date=relative --graph --pretty='format:%C(yellow)%h%d%Creset %s %C(black)(%C(cyan)%aN%Creset %C(black)<%C(cyan)%aE%C(black)>, %C(cyan)%cr%C(black)) %C(magenta)%G?%Creset'
+  prunelocal = branch -r '| awk "{print $1}" | egrep -v -f /dev/fd/0 <(git branch -vv | grep origin) | awk "{print $1}" | xargs git branch -d'
+  rim = rebase -i main
+  cam = commit --amend --no-edit
+  rh1 = reset HEAD~1
+  rh2 = reset HEAD~2
+  rh3 = reset HEAD~3
+  stall = stash --include-untracked
+  empty = commit --allow-empty -m 'Empty commit'
+  wip = !git add -A && git commit -m 'WIP'
+[core]
+  excludesfile = /Users/chrismontrois/.gitignore
+	editor = nvim
+[difftool]
+	prompt = false
+[mergetool]
+	prompt = false
+[filter "lfs"]
+	required = true
+	process = git-lfs filter-process
+	clean = git-lfs clean -- %f
+	smudge = git-lfs smudge -- %f
+[diff]
+	algorithm = patience
+[pull]
+	rebase = true

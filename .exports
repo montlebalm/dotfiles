@@ -1,0 +1,6 @@
+export VISUAL=nvim
+
+export EDITOR="$VISUAL"
+
+export NODE_NO_WARNINGS=1
+export NODE_OPTIONS=--max-old-space-size=8192

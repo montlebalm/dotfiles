@@ -1,0 +1,50 @@
+{
+  "console.log": {
+    "prefix": "cl",
+    "body": ["console.log('(DEBUG) $1', $2);"]
+  },
+  "useEffect": {
+    "prefix": "useEffect",
+    "body": ["useEffect(() => {", "\t$1", "}, []);"]
+  },
+  "useEffectMemo": {
+    "prefix": "useEffectMemo",
+    "body": [
+      "// Memoize callback to remove it as a dependency",
+      "const $1Ref = useRef($1);",
+      "useEffect(() => {",
+      "\t$1Ref.current = $1;",
+      "}, [$1]);"
+    ]
+  },
+  "useMemo": {
+    "prefix": "useMemo",
+    "body": ["useMemo(() => {", "\t$1", "}, []);"]
+  },
+  "Performance": {
+    "prefix": "pnow",
+    "body": [
+      "const time1 = performance.now();",
+      "const time2 = performance.now();",
+      "console.log('(DEBUG) duration', time2 - time1);"
+    ]
+  },
+  "Jest: describe": {
+    "prefix": "describe",
+    "body": [
+      "describe('$1', () => {",
+      "\ttest('$2', () => {",
+      "\t\t$3",
+      "\t});",
+      "});"
+    ]
+  },
+  "Jest: test": {
+    "prefix": "test",
+    "body": ["test('$2', () => {", "\t$3", "});"]
+  },
+  "Node: sleep": {
+    "prefix": "sleep",
+    "body": ["await new Promise((resolve) => setTimeout(resolve, ${5000}));"]
+  }
+}

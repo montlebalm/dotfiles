@@ -1,0 +1,37 @@
+// Zed settings
+//
+// For information on how to configure Zed, see the Zed
+// documentation: https://zed.dev/docs/configuring-zed
+//
+// To see all of Zed's default settings without changing your
+// custom settings, run the `open default settings` command
+// from the command palette or from `Zed` application menu.
+{
+  //
+  // Visual
+  //
+  "tab_size": 2,
+  "theme": "Rosé Pine",
+  "buffer_font_size": 15,
+  "buffer_font_family": "SF Mono",
+  "font_family": "SF Mono",
+  //
+  // Editor
+  //
+  "formatter": {
+    "external": {
+      "command": "prettier",
+      "arguments": ["--stdin-filepath", "{buffer_path}"]
+    }
+  },
+  //
+  // General
+  //
+  "telemetry": {
+    "metrics": false
+  },
+  //
+  // Vim
+  //
+  "vim_mode": true,
+}
