@@ -1,4 +1,7 @@
 .DS_Store
 
+# Local-only settings
+.private
+
 # Temp
 .config/nvim_me/

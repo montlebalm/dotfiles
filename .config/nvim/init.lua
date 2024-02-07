@@ -164,6 +164,6 @@ set statusline+=%m%r                        " modified, readonly
 set statusline+=\                           " spacer
 set statusline+=%<                          " truncate here if needed
 set statusline+=%=                          " switch to RHS
-set statusline+=%l/%L:%c\              " number of lines
+set statusline+=%l/%L:%c\                   " number of lines
 
 ]])

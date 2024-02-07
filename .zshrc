@@ -1,6 +1,6 @@
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
-# Source config files
+# Source aliases
 source ~/.path
 source ~/.aliases
 source ~/.exports

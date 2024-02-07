@@ -57,8 +57,8 @@ return {
 			jsonls = {},
 			lua_ls = {
 				Lua = {
-					-- Recognize "vim" global
 					diagnostics = {
+						-- Recognize "vim" global
 						globals = { "vim" },
 					},
 					workspace = {
@@ -71,7 +71,11 @@ return {
 			},
 			stylelint_lsp = {},
 			svelte = {},
-			tsserver = {},
+			tsserver = {
+				-- 8192, 16384, 32768, 65536
+				['typescript.tsserver.maxTsServerMemory'] = 32768,
+				['typescript.tsserver.log'] = 'verbose',
+			},
 			vimls = {},
 		}
 
