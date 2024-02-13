@@ -1,0 +1,7 @@
+#
+# Airtable
+#
+
+# Ignore snapshots
+--glob=!**/__snapshots__/**
+--glob=!admin/lib/**

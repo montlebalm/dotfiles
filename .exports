@@ -8,6 +8,13 @@ export EDITOR="$VISUAL"
 
 export NODE_NO_WARNINGS=1
 export NODE_OPTIONS=--max-old-space-size=8192
+
+#
+# Ripgrep
+#
+
+export RIPGREP_CONFIG_PATH="$HOME/.ripgreprc"
+
 #
 # Fzf
 #
