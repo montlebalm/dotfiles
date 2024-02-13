@@ -23,5 +23,10 @@ function cd {
   builtin cd "$@" && ls -a -F
 }
 
-# Load Angular CLI autocompletion.
-# source <(ng completion script)
+#
+# z
+#
+
+autoload -U promptinit; promptinit
+
+zstyle ':completion:*' menu select
