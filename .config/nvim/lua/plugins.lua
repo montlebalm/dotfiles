@@ -139,12 +139,6 @@ return {
 		end,
 	},
 
-	-- Formatting
-	-- { 'nvimtools/none-ls.nvim' },
-
-	-- View file tree
-	-- { 'nvim-tree/nvim-tree.lua' },
-
 	-- Automatically create missing directories
 	"duggiefresh/vim-easydir",
 
@@ -160,7 +154,6 @@ return {
 			vim.g.copilot_assume_mapped = true
 			vim.g.copilot_tab_fallback = ""
 
-			-- vim.keymap.set("i", "<C-J>", 'copilot#Accept("<CR>")', { silent = true, expr = true })
 			vim.keymap.set("i", "<C-J>", 'copilot#Accept("<CR>")', {
 				expr = true,
 				replace_keycodes = false,
