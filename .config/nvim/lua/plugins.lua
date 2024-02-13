@@ -132,14 +132,6 @@ return {
 				use_diagnostic_signs = false,
 			})
 
-			-- View references
-			vim.keymap.set("n", "<leader>rr", function()
-				require("trouble").open("lsp_references")
-			end)
-			vim.keymap.set("n", "gr", function()
-				require("trouble").open("lsp_references")
-			end)
-
 			-- View diagnostics
 			vim.keymap.set("n", "<leader>sd", function()
 				require("trouble").open("workspace_diagnostics")
