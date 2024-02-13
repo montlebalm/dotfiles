@@ -8,6 +8,3 @@ fpath+=("$(brew --prefix)/share/zsh/site-functions")
 
 # Local user scripts
 # export PATH="/Users/monty/.bin:$PATH"
-
-# fzf / ripgrep
-export FZF_DEFAULT_COMMAND='rg --files --no-ignore --hidden --follow --glob "!.git/*"'

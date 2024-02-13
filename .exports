@@ -2,5 +2,14 @@ export VISUAL=nvim
 
 export EDITOR="$VISUAL"
 
+#
+# Node
+#
+
 export NODE_NO_WARNINGS=1
 export NODE_OPTIONS=--max-old-space-size=8192
+#
+# Fzf
+#
+
+export FZF_DEFAULT_COMMAND='rg --files --no-ignore --hidden --follow --glob "!.git/*"'
