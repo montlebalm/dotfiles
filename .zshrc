@@ -11,13 +11,6 @@ source ~/.private
 # Source prompt
 source ~/.zsh_prompt_pure
 
-# Source plugins
-source ~/.config/zsh/zsh-z/zsh-z.plugin.zsh
-
-# Case insensitive completion
-autoload -Uz compinit && compinit
-zstyle ':completion:*' matcher-list 'm:{a-z}={A-Za-z}'
-
 # List directory contents after cd
 function cd {
   builtin cd "$@" && ls -a -F
@@ -27,6 +20,12 @@ function cd {
 # z
 #
 
+source ~/.config/zsh/zsh-z/zsh-z.plugin.zsh
+
+# Case insensitive completion
+autoload -Uz compinit && compinit
+
 autoload -U promptinit; promptinit
 
+zstyle ':completion:*' matcher-list 'm:{a-z}={A-Za-z}'
 zstyle ':completion:*' menu select
