@@ -109,7 +109,7 @@ vim.keymap.set("n", "<leader>/", ":noh<CR>")
 vim.keymap.set("n", "gl", ":EslintFixAll<CR>:w<CR>")
 
 -- Open the directory of the current file
-vim.cmd([[map <leader>o :!open <C-R>=expand("%:p:h")<CR><CR>]])
+vim.cmd([[map <leader>o :silent !open <C-R>=expand("%:p:h")<CR><CR>]])
 
 -- Start edit command with the path of the current file
 vim.cmd([[map <leader>e :e <C-R>=expand("%:h") . "/"<CR>]])
