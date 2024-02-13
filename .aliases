@@ -1,5 +1,7 @@
 alias la="ls -a"
 
+alias bell="tput bel"
+
 #
 # fzf
 #
