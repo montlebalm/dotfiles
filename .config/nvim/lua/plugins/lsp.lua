@@ -56,31 +56,39 @@ return {
 			bashls = {},
 			cssls = {},
 			eslint = {
-				format = false,
+				settings = {
+					format = false,
+				},
 			},
 			graphql = {},
 			html = {},
 			jsonls = {},
 			lua_ls = {
-				Lua = {
-					diagnostics = {
-						-- Recognize "vim" global
-						globals = { "vim" },
-					},
-					workspace = {
-						checkThirdParty = false,
-					},
-					telemetry = {
-						enable = false,
+				settings = {
+					Lua = {
+						diagnostics = {
+							-- Recognize "vim" global
+							globals = { "vim" },
+						},
+						workspace = {
+							checkThirdParty = false,
+						},
+						telemetry = {
+							enable = false,
+						},
 					},
 				},
 			},
 			stylelint_lsp = {},
 			svelte = {},
 			tsserver = {
-				-- 8192, 16384, 32768, 65536
-				['typescript.tsserver.maxTsServerMemory'] = 32768,
-				['typescript.tsserver.log'] = 'verbose',
+				init_options = {
+					hostInfo = "neovim",
+					maxTsServerMemory = 32768,
+					preferences = {
+						importModuleSpecifierPreference = "non-relative",
+					},
+				},
 			},
 			vimls = {},
 		}
@@ -99,8 +107,9 @@ return {
 				function(server_name)
 					lspconfig[server_name].setup({
 						capabilities = lsp_capabilities,
-						settings = servers[server_name],
+						init_options = servers[server_name].init_options,
 						on_attach = on_attach,
+						settings = servers[server_name].settings,
 					})
 				end,
 			},
