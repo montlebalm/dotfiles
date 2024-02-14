@@ -146,6 +146,7 @@ vim.api.nvim_create_autocmd({ "BufNewFile", "BufRead" }, {
 		"*.exports",
 		"*.extra",
 		"*.path",
+		"*.private",
 		"*.ripgreprc",
 	},
 	callback = function(event)
