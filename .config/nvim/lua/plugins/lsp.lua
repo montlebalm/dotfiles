@@ -88,6 +88,7 @@ return {
 					hostInfo = "neovim",
 					maxTsServerMemory = 32768,
 					preferences = {
+						-- Prefer project-relative imports (e.g., "foo/bar" instead of "../bar")
 						importModuleSpecifierPreference = "non-relative",
 					},
 				},
