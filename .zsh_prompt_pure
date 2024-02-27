@@ -6,6 +6,6 @@
 autoload -U promptinit; promptinit
 prompt pure
 
-PURE_PROMPT_SYMBOL='%%'
+PURE_PROMPT_SYMBOL='>'
 
 zstyle :prompt:pure:git:branch color 7
