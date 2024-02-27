@@ -79,7 +79,9 @@ return {
 					},
 				},
 			},
-			stylelint_lsp = {},
+			-- stylelint_lsp = {
+			-- 	settings = nil,
+			-- },
 			svelte = {},
 			tsserver = {
 				init_options = {
