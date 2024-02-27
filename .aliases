@@ -1,9 +1,22 @@
 alias la="ls -a"
 
+# Ring the bell
 alias bell="tput bel"
+
+alias sizes="du -ah . | sort -hr | head -n 20"
 
 #
 # fzf
+#
+
+# Find man pages
+alias fman="bash -c 'compgen -c' | fzf | xargs man"
+
+# Find git branches
+alias fbranches="branches | fzf | xargs git checkout"
+
+#
+# z
 #
 
 alias z="fasd_cd -d"
@@ -15,23 +28,14 @@ alias z="fasd_cd -d"
 alias g="git"
 
 # List git branches
-alias branches="git for-each-ref --sort=-committerdate --count=10 --format='%(refname:short)' refs/heads/"
-
-git-recent() {
-	PS3='🔀 Select a branch: ';
-	select b in `branches`;
-	do
-		echo "";
-		git checkout $b;
-		echo "";
-		break;
-	done
-}
+alias branches="git for-each-ref --sort=-committerdate --count=20 --format='%(refname:short)' refs/heads/"
 
 #
 # Neovim
 #
 
 alias nvim-init="nvim ~/.config/nvim/init.lua"
+
 alias nvim-update="brew upgrade neovim && nvim --headless +PlugUpgrade +PlugUpdate +qa"
+
 alias nvim-snippets="nvim ~/.config/nvim/luasnips"
