@@ -67,6 +67,7 @@ return {
 
 		pcall(telescope.load_extension, "fzf")
 		pcall(telescope.load_extension, "file_browser")
+		-- pcall(telescope.load_extension, "harpoon")
 
 		--
 		-- Keymaps
@@ -90,5 +91,7 @@ return {
 		-- vim.keymap.set('n', '<leader>sd', telescope_builtin.diagnostics, { desc = '[S]earch [D]iagnostics' })
 
 		vim.keymap.set("n", "<leader>k", ":Telescope file_browser path=%:p:h select_buffer=true<CR><esc>")
+
+		-- vim.keymap.set("n", "<leader>h", ":Telescope harpoon marks<cr>")
 	end,
 }
