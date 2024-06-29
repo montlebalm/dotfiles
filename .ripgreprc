@@ -5,3 +5,7 @@
 # Ignore snapshots
 --glob=!**/__snapshots__/**
 --glob=!admin/lib/**
+
+# Ignore libraries
+--glob=!web_service/public/js/lib/**
+--glob=!web_service/public/blocks/**

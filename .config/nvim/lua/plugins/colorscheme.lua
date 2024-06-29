@@ -1,59 +1,97 @@
 return {
 	{
-		"montlebalm/vim-greyscale",
-		-- dir = "~/Development/me/vim-greyscale",
-		enabled = false,
+		"ntk148v/komau.vim",
+		enabled = true,
 		priority = 1000,
 		config = function()
-			vim.cmd.colorscheme("greyscale")
+			vim.o.background = "light"
+			vim.cmd.colorscheme("komau")
+
+			vim.cmd("hi Normal ctermbg=NONE")
+
+			-- Diagnostic window
+			vim.cmd("hi NormalFloat ctermbg=254")
+
+			-- Line separating vertical splits
+			vim.cmd("hi WinSeparator ctermbg=254 ctermfg=254")
+
+			vim.cmd("hi link WarningMsg Normal")
+
+			-- vim.cmd("hi Visual ctermbg=223")
+			-- vim.cmd("hi Visual ctermbg=214")
+			-- vim.cmd("hi Visual ctermbg=114")
+			-- vim.cmd("hi Visual ctermbg=222")
+			-- vim.cmd("hi Visual ctermbg=151")
+			vim.cmd("hi Visual ctermbg=175")
+
+			-- Strip italic
+			vim.cmd("hi Identifier cterm=NONE")
+
+			-- Functions
+			--   const foo = useMemo(...)
+			--               ^^^^^^^
+			--   obj.method()
+			--       ^^^^^^
+			vim.cmd("hi link @lsp.type.function.typescriptreact Special")
+			vim.cmd("hi link @function.method.call.tsx Special")
+
+			-- TSX tags
+			--   <div />
+			--    ^^^
+			vim.cmd("hi link @tag.tsx Identifier")
+			vim.cmd("hi link @tag.builtin.tsx Identifier")
 		end,
 	},
 
+	-- {
+	-- 	"chriskempson/base16-vim",
+	-- 	enabled = false,
+	-- 	priority = 1000,
+	-- 	config = function()
+	-- 		vim.o.background = "dark"
+	-- 		vim.cmd.colorscheme("base16-grayscale-dark")
+	--
+	-- 		vim.cmd("hi SignColumn ctermbg=NONE")
+	-- 		vim.cmd("hi GitGutterAdd ctermbg=NONE")
+	-- 		vim.cmd("hi GitGutterChange ctermbg=NONE")
+	-- 		vim.cmd("hi GitGutterDelete ctermbg=NONE")
+	-- 	end,
+	-- },
+
 	{
-		-- 'rose-pine/neovim',
-		"montlebalm/rose-pine-neovim",
+		'rose-pine/neovim',
 		enabled = false,
 		priority = 1000,
 		config = function()
 			require("rose-pine").setup({
-				bold_vert_split = true,
-				dim_nc_background = true,
-				disable_background = true,
-				highlight_groups = {
-					StatusLine = { bg = "highlight_low", fg = "subtle" },
-					User1 = { bg = "highlight_low", fg = "subtle" },
-					["@tag.attribute.tsx"] = { fg = "subtle" },
-					LazyDimmed = { fg = "subtle" },
-					Pmenu = { bg = "highlight_med" },
+				styles = {
+					bold = false,
+					italic = false,
+					transparency = false,
 				},
+				variant = 'dawn',
 			})
 
+			vim.o.background = "light"
 			vim.cmd.colorscheme("rose-pine")
-		end,
-	},
-
-	{
-		"rainglow/vim",
-		enabled = false,
-		priority = 1000,
-		config = function()
-			-- vim.cmd.colorscheme("stealth")
-			-- vim.cmd.colorscheme("stealth-contrast")
-			-- vim.cmd.colorscheme("hive-contrast")
-			-- vim.cmd.colorscheme("arstotzka")
-			-- vim.cmd.colorscheme("absent-contrast")
 
 			vim.cmd("hi Normal guibg=NONE")
-			vim.cmd("hi SignColumn guibg=NONE")
+
+			vim.cmd("hi Comment guifg=#bbb4ac")
+
+			vim.cmd("hi Statusline guibg=#f3ddd7")
+			vim.cmd("hi WinSeparator guifg=#f3ddd7 guibg=#f3ddd7")
+			-- vim.cmd("hi NormalFloat guibg=#f3ddd7")
 		end,
 	},
 
 	{
 		"chriskempson/base16-vim",
-		enabled = true,
+		enabled = false,
 		priority = 1000,
 		config = function()
-			vim.cmd.colorscheme("base16-grayscale-dark")
+			vim.o.background = "light"
+			vim.cmd.colorscheme("base16-grayscale-light")
 
 			vim.cmd("hi Normal ctermbg=NONE guibg=NONE")
 			vim.cmd("hi SignColumn ctermbg=NONE guibg=NONE")
@@ -76,7 +114,7 @@ return {
 			-- TSX property names
 			--   <div foo="bar" />
 			--        ^^^
-			vim.cmd("hi Tag ctermfg=8")
+			vim.cmd("hi @tag.attribute.tsx ctermfg=8")
 
 			-- Variables
 			--   const foo = 1

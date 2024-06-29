@@ -14,17 +14,25 @@ return {
 		"kana/vim-textobj-user",
 		dependencies = {
 			"kana/vim-textobj-entire",
+			"kana/vim-textobj-indent",
 		},
 	},
+
+	-- -- Dashboard
+	-- {
+	-- 	'nvimdev/dashboard-nvim',
+	-- 	event = 'VimEnter',
+	-- 	config = function()
+	-- 		require('dashboard').setup {
+	-- 			-- config
+	-- 		}
+	-- 	end,
+	-- 	-- dependencies = { { 'nvim-tree/nvim-web-devicons' } }
+	-- },
 
 	{
 		"klen/nvim-config-local",
 		opts = {}
-	},
-
-	-- Pathing
-	{
-		'PsychoLlama/further.vim',
 	},
 
 	-- Formatting
@@ -118,7 +126,7 @@ return {
 		config = function()
 			require("trouble").setup({
 				icons = false,
-				fold_open = "-", -- icon used for open folds
+				fold_open = "-",  -- icon used for open folds
 				fold_closed = "+", -- icon used for closed folds
 				indent_lines = false, -- add an indent guide below the fold icons
 				signs = {
@@ -159,6 +167,13 @@ return {
 				replace_keycodes = false,
 			})
 		end,
+	},
+	{
+		"CopilotC-Nvim/CopilotChat.nvim",
+		dependencies = {
+			{ "zbirenbaum/copilot.lua" },
+			{ "nvim-lua/plenary.nvim" },
+		},
 	},
 
 	-- Reload browser

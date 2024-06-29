@@ -20,15 +20,19 @@ return {
 		local telescope = require("telescope")
 		local telescope_actions = require("telescope.actions")
 		local telescope_builtin = require("telescope.builtin")
-		local telescope_trouble = require("trouble.providers.telescope")
+		local telescope_trouble = require("trouble.sources.telescope")
 		local telescope_fb = require("telescope._extensions.file_browser.actions")
 
 		telescope.setup({
 			defaults = {
 				layout_strategy = "vertical",
 				layout_config = {
-					height = vim.o.lines,
-					width = vim.o.columns,
+					height = {
+						padding = 0,
+					},
+					width = {
+						padding = 0,
+					},
 					prompt_position = "bottom",
 				},
 				mappings = {
@@ -39,7 +43,7 @@ return {
 						["<Up>"] = telescope_actions.move_selection_previous,
 						["<s-Down>"] = telescope_actions.cycle_history_next,
 						["<s-Up>"] = telescope_actions.cycle_history_prev,
-						["<C-q>"] = telescope_trouble.open_with_trouble,
+						["<C-q>"] = telescope_trouble.open,
 					},
 				},
 			},

@@ -28,6 +28,7 @@
   stall = stash --include-untracked
   empty = commit --allow-empty -m 'Empty commit'
   wip = !git add -A && git commit -m 'WIP'
+  remain = !git fetch origin && git rebase origin/main
 [core]
   excludesfile = /Users/chrismontrois/.gitignore
 	editor = nvim

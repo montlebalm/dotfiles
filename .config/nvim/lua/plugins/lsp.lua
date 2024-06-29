@@ -6,12 +6,29 @@ return {
 		"williamboman/mason-lspconfig.nvim",
 
 		-- Useful status updates for LSP
-		{ "j-hui/fidget.nvim", opts = {} },
+		{
+			"j-hui/fidget.nvim",
+			opts = {}
+		},
 
 		-- Additional lua configuration, makes nvim stuff amazing!
-		{ "folke/neodev.nvim", opts = {} },
+		{
+			"folke/neodev.nvim",
+			opts = {}
+		},
 
-		{ "antosha417/nvim-lsp-file-operations", opts = {} },
+		{
+			"antosha417/nvim-lsp-file-operations",
+			opts = {}
+		},
+
+		-- {
+		-- 	"pmizio/typescript-tools.nvim",
+		-- 	dependencies = {
+		-- 		"nvim-lua/plenary.nvim",
+		-- 		"neovim/nvim-lspconfig",
+		-- 	},
+		-- },
 	},
 
 	event = {
@@ -31,7 +48,7 @@ return {
 			vim.keymap.set("n", "gd", vim.lsp.buf.definition, opts)
 			vim.keymap.set("n", "gD", vim.lsp.buf.declaration, opts)
 			vim.keymap.set("n", "gi", vim.lsp.buf.implementation, opts)
-			-- vim.keymap.set("n", "gT", vim.lsp.buf.type_definition, opts)
+			vim.keymap.set("n", "gT", vim.lsp.buf.type_definition, opts)
 			vim.keymap.set("n", "gs", vim.lsp.buf.signature_help, opts)
 			vim.keymap.set("n", "gr", vim.lsp.buf.rename, opts)
 			vim.keymap.set("n", "<leader>ca", vim.lsp.buf.code_action, opts)
@@ -39,9 +56,9 @@ return {
 			vim.keymap.set("n", "gR", function()
 				require("trouble").open("lsp_references")
 			end, opts)
-			vim.keymap.set("n", "gT", function()
-				require("trouble").toggle("lsp_type_definitions")
-			end, opts)
+			-- vim.keymap.set("n", "gT", function()
+			-- 	require("trouble").toggle("lsp_type_definitions")
+			-- end, opts)
 
 			vim.keymap.set("n", "<leader>af", vim.diagnostic.open_float, opts)
 			vim.keymap.set("n", "<leader>ap", vim.diagnostic.goto_prev, opts)
@@ -117,6 +134,21 @@ return {
 				end,
 			},
 		})
+
+		-- --
+		-- -- typescript-tools
+		-- --
+		--
+		-- require("typescript-tools").setup({
+		-- 	on_attach = on_attach,
+		-- 	handlers = lsp_capabilities,
+		-- 	settings = {
+		-- 		tsserver_max_memory = 32768,
+		-- 		tsserver_file_preferences = {
+		-- 			importModuleSpecifierPreference = "non-relative",
+		-- 		},
+		-- 	},
+		-- })
 
 		--
 		-- Diagnostics

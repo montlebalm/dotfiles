@@ -15,11 +15,20 @@ return {
 
 		local luasnip = require("luasnip")
 		local cmp = require("cmp")
+		local cmp_context = require("cmp.config.context")
 
 		cmp.setup({
 			completion = {
 				completeopt = "menu,menuone,preview,noselect",
 			},
+			enabled = function()
+				-- disable completion in comments
+				if cmp_context.in_treesitter_capture("comment") == true or cmp_context.in_syntax_group("Comment") then
+					return false
+				else
+					return true
+				end
+			end,
 			sources = {
 				{ name = "path" },
 				{ name = "buffer" },
