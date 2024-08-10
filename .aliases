@@ -5,6 +5,8 @@ alias bell="tput bel"
 
 alias sizes="du -ah . | sort -hr | head -n 20"
 
+alias vim="nvim"
+
 #
 # fzf
 #

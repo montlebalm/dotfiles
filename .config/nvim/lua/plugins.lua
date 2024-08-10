@@ -18,21 +18,60 @@ return {
 		},
 	},
 
-	-- -- Dashboard
-	-- {
-	-- 	'nvimdev/dashboard-nvim',
-	-- 	event = 'VimEnter',
-	-- 	config = function()
-	-- 		require('dashboard').setup {
-	-- 			-- config
-	-- 		}
-	-- 	end,
-	-- 	-- dependencies = { { 'nvim-tree/nvim-web-devicons' } }
-	-- },
-
 	{
 		"klen/nvim-config-local",
 		opts = {}
+	},
+
+	{
+		'mhinz/vim-startify',
+		config = function()
+			vim.cmd([[
+				" returns all modified files of the current git repo
+				" `2>/dev/null` makes the command fail quietly, so that when we are not
+				" in a git repo, the list will be empty
+				function! s:gitModified()
+					let files = systemlist('git ls-files -m 2>/dev/null')
+					return map(files, "{'line': v:val, 'path': v:val}")
+				endfunction
+
+				" same as above, but show untracked files, honouring .gitignore
+				function! s:gitUntracked()
+					let files = systemlist('git ls-files -o --exclude-standard 2>/dev/null')
+					return map(files, "{'line': v:val, 'path': v:val}")
+				endfunction
+
+				let g:startify_lists = [
+					\ { 'type': 'files',     'header': ['   MRU']            },
+					\ { 'type': 'dir',       'header': ['   MRU '. getcwd()] },
+					\ { 'type': 'sessions',  'header': ['   Sessions']       },
+					\ { 'type': 'bookmarks', 'header': ['   Bookmarks']      },
+					\ { 'type': function('s:gitModified'),  'header': ['   git modified']},
+					\ { 'type': function('s:gitUntracked'), 'header': ['   git untracked']},
+					\ { 'type': 'commands',  'header': ['   Commands']       },
+					\ ]
+
+				  " https://www.asciiart.eu/text-to-ascii-art
+					" let g:startify_custom_header = [
+					" 	\ '   ███╗   ██╗███████╗ ██████╗ ██╗   ██╗██╗███╗   ███╗',
+					" 	\ '   ████╗  ██║██╔════╝██╔═══██╗██║   ██║██║████╗ ████║',
+					" 	\ '   ██╔██╗ ██║█████╗  ██║   ██║██║   ██║██║██╔████╔██║',
+					" 	\ '   ██║╚██╗██║██╔══╝  ██║   ██║╚██╗ ██╔╝██║██║╚██╔╝██║',
+					" 	\ '   ██║ ╚████║███████╗╚██████╔╝ ╚████╔╝ ██║██║ ╚═╝ ██║',
+					" 	\ '   ╚═╝  ╚═══╝╚══════╝ ╚═════╝   ╚═══╝  ╚═╝╚═╝     ╚═╝',
+					" 	\ ]
+					let g:startify_custom_header = [
+						\ '    ██████   █████                                ███                 ',
+						\ '   ░░██████ ░░███                                ░░░                  ',
+						\ '    ░███░███ ░███   ██████   ██████  █████ █████ ████  █████████████  ',
+						\ '    ░███░░███░███  ███░░███ ███░░███░░███ ░░███ ░░███ ░░███░░███░░███ ',
+						\ '    ░███ ░░██████ ░███████ ░███ ░███ ░███  ░███  ░███  ░███ ░███ ░███ ',
+						\ '    ░███  ░░█████ ░███░░░  ░███ ░███ ░░███ ███   ░███  ░███ ░███ ░███ ',
+						\ '    █████  ░░█████░░██████ ░░██████   ░░█████    █████ █████░███ █████',
+						\ '   ░░░░░    ░░░░░  ░░░░░░   ░░░░░░     ░░░░░    ░░░░░ ░░░░░ ░░░ ░░░░░ ',
+						\ ]
+				]])
+		end
 	},
 
 	-- Formatting
@@ -49,20 +88,11 @@ return {
 				typescriptreact = { "prettier" },
 			},
 			format_on_save = {
-				timeout_ms = 1000,
+				timeout_ms = 2000,
 				lsp_fallback = true,
 			},
 		},
 	},
-
-	-- Buffers
-	-- {
-	--   'qpkorr/vim-bufkill',
-	--   config = function()
-	--     vim.g.BufKillCreateMappings = 0
-	--     vim.cmd [[ let g:BufKillCreateMappings = 0 ]]
-	--   end
-	-- },
 
 	-- Useful plugin to show you pending keybinds.
 	{ "folke/which-key.nvim", opts = {} },
@@ -108,6 +138,15 @@ return {
 		end,
 	},
 
+	{
+		'sindrets/diffview.nvim',
+		config = function()
+			require('diffview').setup({
+				use_icons = false,
+			})
+		end,
+	},
+
 	-- "gc" to comment visual regions/lines
 	{
 		"numToStr/Comment.nvim",
@@ -115,36 +154,6 @@ return {
 			"suy/vim-context-commentstring",
 		},
 		opts = {},
-	},
-
-	-- References, diagnostics
-	{
-		"folke/trouble.nvim",
-		-- dependencies = {
-		--   "nvim-tree/nvim-web-devicons"
-		-- },
-		config = function()
-			require("trouble").setup({
-				icons = false,
-				fold_open = "-",  -- icon used for open folds
-				fold_closed = "+", -- icon used for closed folds
-				indent_lines = false, -- add an indent guide below the fold icons
-				signs = {
-					-- icons / text used for a diagnostic
-					error = "error",
-					warning = "warn",
-					hint = "hint",
-					information = "info",
-				},
-				-- Enabling this will use the signs defined in your lsp client
-				use_diagnostic_signs = false,
-			})
-
-			-- View diagnostics
-			vim.keymap.set("n", "<leader>sd", function()
-				require("trouble").open("workspace_diagnostics")
-			end)
-		end,
 	},
 
 	-- Automatically create missing directories

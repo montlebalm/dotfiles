@@ -20,7 +20,6 @@ return {
 		local telescope = require("telescope")
 		local telescope_actions = require("telescope.actions")
 		local telescope_builtin = require("telescope.builtin")
-		local telescope_trouble = require("trouble.sources.telescope")
 		local telescope_fb = require("telescope._extensions.file_browser.actions")
 
 		telescope.setup({
@@ -39,11 +38,13 @@ return {
 					i = {
 						["<C-j>"] = telescope_actions.move_selection_next,
 						["<C-k>"] = telescope_actions.move_selection_previous,
-						["<Down>"] = telescope_actions.move_selection_next,
-						["<Up>"] = telescope_actions.move_selection_previous,
-						["<s-Down>"] = telescope_actions.cycle_history_next,
-						["<s-Up>"] = telescope_actions.cycle_history_prev,
-						["<C-q>"] = telescope_trouble.open,
+						-- ["<Down>"] = telescope_actions.move_selection_next,
+						-- ["<Up>"] = telescope_actions.move_selection_previous,
+						-- ["<s-Down>"] = telescope_actions.cycle_history_next,
+						-- ["<s-Up>"] = telescope_actions.cycle_history_prev,
+						["<Down>"] = telescope_actions.cycle_history_next,
+						["<Up>"] = telescope_actions.cycle_history_prev,
+						-- ["<C-q>"] = telescope_trouble.open,
 					},
 				},
 			},

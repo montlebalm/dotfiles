@@ -23,7 +23,7 @@ vim.opt.rtp:prepend(lazypath)
 require("lazy").setup("plugins")
 
 -- Keep cursor in the center of the screen
-vim.opt.scrolloff = 3
+vim.opt.scrolloff = 0
 
 -- Set highlight on search
 vim.o.hlsearch = true

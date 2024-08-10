@@ -109,6 +109,7 @@ return {
 						importModuleSpecifierPreference = "non-relative",
 					},
 				},
+				root_dir = require('lspconfig/util').root_pattern(".git"),
 			},
 			vimls = {},
 		}
@@ -129,6 +130,7 @@ return {
 						capabilities = lsp_capabilities,
 						init_options = servers[server_name].init_options,
 						on_attach = on_attach,
+						root_dir = servers[server_name].root_dir,
 						settings = servers[server_name].settings,
 					})
 				end,

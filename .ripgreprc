@@ -9,3 +9,6 @@
 # Ignore libraries
 --glob=!web_service/public/js/lib/**
 --glob=!web_service/public/blocks/**
+
+# Ignore i18n
+--glob=!lang/**
