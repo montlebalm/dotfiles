@@ -4,5 +4,12 @@
 .private
 .nvim.lua
 
+# Lock files
+.config/github-copilot/versions.json
+.config/nvim/lazy-lock.json
+
 # Temp
 .config/nvim_me/
+
+# Git directories
+./config/zsh/zsh-z
