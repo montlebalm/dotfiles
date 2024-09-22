@@ -1,5 +1,5 @@
 # Local user scripts
-export PATH="$HOME/.bin:$PATH"
+# export PATH="$HOME/.bin:$PATH"
 
 # Homebrew
 export PATH="/opt/homebrew/bin:$PATH"
