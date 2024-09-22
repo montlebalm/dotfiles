@@ -100,7 +100,7 @@ return {
 			-- 	settings = nil,
 			-- },
 			svelte = {},
-			tsserver = {
+			ts_ls = {
 				init_options = {
 					hostInfo = "neovim",
 					maxTsServerMemory = 32768,

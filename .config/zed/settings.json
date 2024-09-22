@@ -15,9 +15,14 @@
   "buffer_font_size": 15,
   "buffer_font_family": "SF Mono",
   "font_family": "SF Mono",
+
   //
   // Editor
   //
+  "gutter": {
+    "line_numbers": false,
+    "runnables": false
+  },
 
   //
   // General
@@ -25,8 +30,18 @@
   "telemetry": {
     "metrics": false
   },
+
   //
   // Vim
   //
   "vim_mode": true,
+
+  //
+  // Git
+  //
+  "git": {
+    "inline_blame": {
+      "enabled": false
+    }
+  }
 }

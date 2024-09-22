@@ -25,6 +25,7 @@ return {
 
 	{
 		'mhinz/vim-startify',
+		enabled = false,
 		config = function()
 			vim.cmd([[
 				" returns all modified files of the current git repo
