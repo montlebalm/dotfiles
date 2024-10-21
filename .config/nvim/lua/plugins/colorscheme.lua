@@ -3,7 +3,15 @@
 --
 
 vim.o.background = "light"
-vim.cmd("hi Visual ctermbg=11 ctermfg=0 guibg=#ffd75f")
+
+vim.cmd([[
+	hi Visual ctermbg=11 ctermfg=0 guibg=#ffd75f
+
+	hi! PmenuSel cterm=NONE ctermbg=0 ctermfg=11
+
+	hi Search ctermbg=11 ctermfg=0
+	hi! link CurSearch Search
+]])
 
 return {
 	{
