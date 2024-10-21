@@ -1,0 +1,25 @@
+# Neovim Default Light - alacritty color config
+
+[colors]
+draw_bold_text_with_bright_colors = false
+
+# Default colors
+[colors.primary]
+background = '#e0e2ea'
+foreground = '#07080d'
+
+# Colors the cursor will use if `custom_cursor_colors` is true
+[colors.cursor]
+text = '#cccccc'
+cursor = '#07080d'
+
+# Normal colors
+[colors.normal]
+black = '#07080d'
+red = '#590008'
+green = '#005523'
+yellow = '#6b5300'
+blue = '#004c73'
+magenta = '#470045'
+cyan = '#007373'
+white = '#cccccc'
