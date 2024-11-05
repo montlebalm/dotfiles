@@ -13,6 +13,7 @@ return {
 	{
 		"kana/vim-textobj-user",
 		dependencies = {
+			"glts/vim-textobj-comment",
 			"kana/vim-textobj-entire",
 			"kana/vim-textobj-indent",
 		},
