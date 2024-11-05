@@ -8,4 +8,9 @@ prompt pure
 
 PURE_PROMPT_SYMBOL='>'
 
-zstyle :prompt:pure:git:branch color 0
+# Set directory to black
+zstyle :prompt:pure:path color 0
+
+# Set git branch to yellow
+zstyle :prompt:pure:git:branch color 3
+
