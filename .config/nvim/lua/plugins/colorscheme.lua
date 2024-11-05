@@ -2,23 +2,18 @@
 -- Neovim Default (Light)
 --
 
-vim.o.background = "light"
-
+-- Invert the statusline when in insert mode
 vim.cmd([[
-	hi Visual ctermbg=11 ctermfg=0 guibg=#ffd75f
-
-	hi! PmenuSel cterm=NONE ctermbg=0 ctermfg=11
-
-	hi Search ctermbg=11 ctermfg=0
-	hi! link CurSearch Search
+	autocmd InsertEnter * hi Statusline ctermbg=0 ctermfg=15
+	autocmd InsertLeave * hi Statusline ctermbg=15 ctermfg=0
 ]])
 
 return {
 	{
 		"montlebalm/komau.vim",
-		dir = "~/Developer/montlebalm/komau.vim",
+		dir = "~/Development/montlebalm/komau.vim",
 		dev = true,
-		enabled = false,
+		enabled = true,
 		priority = 1000,
 		config = function()
 			vim.o.background = "light"
