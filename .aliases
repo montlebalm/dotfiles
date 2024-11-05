@@ -5,7 +5,6 @@ alias bell="tput bel"
 
 alias sizes="du -ah . | sort -hr | head -n 20"
 
-alias vim="nvim"
 
 #
 # fzf
@@ -36,7 +35,10 @@ alias branches="git for-each-ref --sort=-committerdate --count=20 --format='%(re
 # Neovim
 #
 
+alias vim="nvim"
+
 alias nvim-init="nvim ~/.config/nvim/init.lua"
+alias nvim-init-theme="nvim ~/.config/nvim/lua/plugins/colorscheme.lua"
 
 alias nvim-update="brew upgrade neovim && nvim --headless +PlugUpgrade +PlugUpdate +qa"
 
