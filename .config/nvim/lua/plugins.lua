@@ -134,9 +134,6 @@ return {
 					map({ "o", "x" }, "ih", ":<C-U>Gitsigns select_hunk<CR>")
 				end,
 			})
-
-			-- Highlights
-			vim.cmd("hi DiffChange ctermbg=NONE")
 		end,
 	},
 
