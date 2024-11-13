@@ -12,3 +12,9 @@
 
 # Ignore i18n
 --glob=!lang/**
+
+# Ignore unhelpful directories
+--glob=!blocks/**
+--glob=!block_sdk/**
+--glob=!third_party/**
+--glob=!terraform/**
