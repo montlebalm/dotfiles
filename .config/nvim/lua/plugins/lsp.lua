@@ -61,8 +61,16 @@ return {
 			-- end, opts)
 
 			vim.keymap.set("n", "<leader>af", vim.diagnostic.open_float, opts)
-			vim.keymap.set("n", "<leader>ap", vim.diagnostic.goto_prev, opts)
-			vim.keymap.set("n", "<leader>an", vim.diagnostic.goto_next, opts)
+			vim.keymap.set("n", "<leader>ap", function()
+				vim.diagnostic.goto_prev({
+					severity = vim.diagnostic.severity.ERROR,
+				})
+			end, opts)
+			vim.keymap.set("n", "<leader>an", function()
+				vim.diagnostic.goto_next({
+					severity = vim.diagnostic.severity.ERROR,
+				})
+			end, opts)
 		end
 
 		--
