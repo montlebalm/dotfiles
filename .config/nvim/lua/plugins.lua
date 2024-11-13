@@ -123,7 +123,7 @@ return {
 
 					-- Navigation
 					map("n", "<leader>hn", gs.next_hunk)
-					map("n", "<leader>hp", gs.next_hunk)
+					map("n", "<leader>hp", gs.prev_hunk)
 
 					-- Actions
 					map("n", "<leader>hu", gs.undo_stage_hunk)
