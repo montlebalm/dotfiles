@@ -1,17 +1,15 @@
 {
+  "constructor": {
+    "prefix": "ctor",
+    "body": ["constructor() {", "\t$1", "}"]
+  },
   "console.log": {
     "prefix": "cl",
-    "body": [
-      "console.log('(DEBUG) $1', $2);"
-    ]
+    "body": ["console.log('(DEBUG) $1', $2);"]
   },
   "useEffect": {
     "prefix": "useEffect",
-    "body": [
-      "useEffect(() => {",
-      "\t$1",
-      "}, []);"
-    ]
+    "body": ["useEffect(() => {", "\t$1", "}, []);"]
   },
   "useEffectMemo": {
     "prefix": "useEffectMemo",
@@ -25,11 +23,7 @@
   },
   "useMemo": {
     "prefix": "useMemo",
-    "body": [
-      "useMemo(() => {",
-      "\t$1",
-      "}, []);"
-    ]
+    "body": ["useMemo(() => {", "\t$1", "}, []);"]
   },
   "Performance": {
     "prefix": "pnow",
@@ -51,17 +45,11 @@
   },
   "Jest: test": {
     "prefix": "test",
-    "body": [
-      "it('$2', () => {",
-      "\t$3",
-      "});"
-    ]
+    "body": ["it('$2', () => {", "\t$3", "});"]
   },
   "Node: sleep": {
     "prefix": "sleep",
-    "body": [
-      "await new Promise((resolve) => setTimeout(resolve, ${5000}));"
-    ]
+    "body": ["await new Promise((resolve) => setTimeout(resolve, ${5000}));"]
   },
   "intl: FormattedMessage": {
     "prefix": "intl",
