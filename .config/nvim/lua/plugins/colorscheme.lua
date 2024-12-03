@@ -10,14 +10,14 @@ vim.cmd([[
 
 return {
 	{
-		"montlebalm/komau.vim",
-		dir = "~/Development/montlebalm/komau.vim",
+		"montlebalm/greybeard",
+		dir = "~/Developer/montlebalm/greybeard",
 		dev = true,
 		enabled = true,
 		priority = 1000,
 		config = function()
 			vim.o.background = "light"
-			vim.cmd.colorscheme("komau")
+			vim.cmd.colorscheme("greybeard")
 		end,
 	},
 
