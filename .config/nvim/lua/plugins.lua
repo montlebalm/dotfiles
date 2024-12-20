@@ -74,9 +74,9 @@ return {
 					map("n", "<leader>hp", gs.prev_hunk)
 
 					-- Actions
-					map("n", "<leader>hu", gs.undo_stage_hunk)
+					-- map("n", "<leader>hu", gs.undo_stage_hunk)
 					map("n", "<leader>hs", gs.stage_hunk)
-					map("n", "<leader>hr", gs.reset_hunk)
+					map("n", "<leader>hu", gs.reset_hunk)
 
 					-- Text object
 					map({ "o", "x" }, "ih", ":<C-U>Gitsigns select_hunk<CR>")
