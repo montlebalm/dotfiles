@@ -22,9 +22,12 @@
   prunelocal = branch -r '| awk "{print $1}" | egrep -v -f /dev/fd/0 <(git branch -vv | grep origin) | awk "{print $1}" | xargs git branch -d'
   rim = rebase -i main
   cam = commit --amend --no-edit
+  camf = !git add . && git cam && git push --force
   rh1 = reset HEAD~1
   rh2 = reset HEAD~2
   rh3 = reset HEAD~3
+  rh4 = reset HEAD~4
+  rh5 = reset HEAD~5
   stall = stash --include-untracked
   empty = commit --allow-empty -m 'Empty commit'
   wip = !git add -A && git commit -m 'WIP'
