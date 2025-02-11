@@ -11,7 +11,7 @@
   // Visual
   //
   "tab_size": 2,
-  "theme": "Rosé Pine Dawn",
+  "theme": "Andromeda",
   "buffer_font_size": 15,
   "buffer_font_family": "SF Mono",
   "font_family": "SF Mono",
@@ -29,6 +29,11 @@
   //
   "telemetry": {
     "metrics": false
+  },
+  "toolbar": {
+    "breadcrumbs": false,
+    "quick_actions": false,
+    "selections_menu": false
   },
 
   //
