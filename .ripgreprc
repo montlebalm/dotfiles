@@ -18,3 +18,5 @@
 --glob=!block_sdk/**
 --glob=!third_party/**
 --glob=!terraform/**
+
+--glob=!server_shared/developers/open_api/**
