@@ -21,6 +21,8 @@ export RIPGREP_CONFIG_PATH="$HOME/.ripgreprc"
 
 export FZF_DEFAULT_COMMAND='rg --files --no-ignore --hidden --follow --glob "!.git/*"'
 
+export FZF_DEFAULT_OPTS="--no-bold"
+
 #
 # lazygit
 #
