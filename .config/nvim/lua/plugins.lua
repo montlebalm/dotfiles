@@ -20,6 +20,16 @@ return {
 	},
 
 	{
+		"stevearc/oil.nvim",
+		config = function()
+			require('oil').setup({})
+
+			vim.keymap.set("n", "-", "<cmd>Oil<cr>", { desc = "Open file browser" })
+			vim.keymap.set("n", "<leader>k", "<cmd>Oil<cr>", { desc = "Open file browser" })
+		end,
+	},
+
+	{
 		"klen/nvim-config-local",
 		opts = {}
 	},
@@ -86,6 +96,25 @@ return {
 	},
 
 	{
+		"utilyre/barbecue.nvim",
+		enabled = false,
+		name = "barbecue",
+		version = "*",
+		dependencies = {
+			"SmiteshP/nvim-navic",
+			"nvim-tree/nvim-web-devicons", -- optional dependency
+		},
+		opts = {
+			attach_navic = false,
+			kinds = false,
+			theme = {
+				normal = { bg = 15 },
+				basename = { bold = false },
+			},
+		},
+	},
+
+	{
 		'sindrets/diffview.nvim',
 		config = function()
 			require('diffview').setup({
@@ -124,12 +153,14 @@ return {
 			})
 		end,
 	},
+
 	{
 		"CopilotC-Nvim/CopilotChat.nvim",
 		dependencies = {
 			{ "zbirenbaum/copilot.lua" },
 			{ "nvim-lua/plenary.nvim" },
 		},
+		build = "make tiktoken",
 	},
 
 	-- Reload browser
