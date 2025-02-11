@@ -1,95 +1,84 @@
 return {
-	"nvim-telescope/telescope.nvim",
-
-	dependencies = {
-		"nvim-lua/plenary.nvim",
-		"nvim-telescope/telescope-live-grep-args.nvim",
-		"nvim-telescope/telescope-file-browser.nvim",
-		{
-			"nvim-telescope/telescope-fzf-native.nvim",
-			build = "make",
-			cond = function()
-				return vim.fn.executable("make") == 1
-			end,
-		},
-	},
+	"ibhagwan/fzf-lua",
 
 	config = function()
-		local telescope = require("telescope")
-		local telescope_actions = require("telescope.actions")
-		local telescope_builtin = require("telescope.builtin")
-		local telescope_fb = require("telescope._extensions.file_browser.actions")
-
-		telescope.setup({
+		require('fzf-lua').setup({
+			"telescope",
 			defaults = {
-				layout_strategy = "vertical",
-				layout_config = {
-					height = {
-						padding = 0,
-					},
-					width = {
-						padding = 0,
-					},
-					prompt_position = "bottom",
-				},
-				mappings = {
-					i = {
-						["<C-j>"] = telescope_actions.move_selection_next,
-						["<C-k>"] = telescope_actions.move_selection_previous,
-						["<C-h>"] = telescope_actions.cycle_history_next,
-						["<C-l>"] = telescope_actions.cycle_history_prev,
-					},
-				},
+				-- Icons
+				color_icons = false,
+				file_icons = false,
+				git_icons = false,
+
+				-- Paths
+				formatter = 'path.filename_first',
+
+				-- Remove help text
+				header = false,
 			},
-			pickers = {
-				buffers = {
-					ignore_current_buffer = true,
-					sort_mru = true,
-				},
-				find_files = {
-					path_display = { "smart" },
-				},
+			fzf_colors = {
+				-- Current line
+				["fg+"]     = { "fg", "Normal" },
+				["bg+"]     = { "bg", "Visual" },
+				["prompt"]  = { "fg", "Comment" },
+
+				-- Disable
+				["fg"]      = "-1",
+				["bg"]      = "-1",
+				["hl"]      = "-1",
+				["hl+"]     = "-1",
+				["info"]    = "-1",
+				["pointer"] = "-1",
+				["marker"]  = "-1",
+				["spinner"] = "-1",
+				["header"]  = "-1",
+				["gutter"]  = "-1",
 			},
-			extensions = {
-				file_browser = {
-					dir_icon = ">",
-					hijack_netrw = true,
-					mappings = {
-						["n"] = {
-							["-"] = telescope_fb.goto_parent_dir,
-						},
+			grep = {
+				rg_glob = true,
+			},
+			winopts = {
+				fullscreen = true,
+				preview = {
+					winopts = {
+						number = false,
 					},
 				},
-			},
+				scrollbar = "border",
+			}
 		})
 
-		pcall(telescope.load_extension, "fzf")
-		pcall(telescope.load_extension, "file_browser")
-		-- pcall(telescope.load_extension, "harpoon")
-
-		--
-		-- Keymaps
-		--
-
-		vim.keymap.set("n", "<leader>b", telescope_builtin.buffers, { desc = "Find [B]uffers" })
-		vim.keymap.set("n", "<leader>p", telescope_builtin.find_files, { desc = "[S]earch [F]iles" })
-		vim.keymap.set("n", "<leader>f", telescope_builtin.live_grep, { desc = "[S]earch by [G]rep" })
+		-- Buffers
 		vim.keymap.set(
 			"n",
-			"<leader>g",
-			telescope.extensions.live_grep_args.live_grep_args,
+			"<leader>b",
+			require('fzf-lua').buffers,
+			{ desc = "Find [B]uffers" }
+		)
+
+		-- Files
+		vim.keymap.set(
+			"n",
+			"<leader>p",
+			require('fzf-lua').files,
+			{ desc = "[S]earch [F]iles" }
+		)
+
+		-- Live grep
+		vim.keymap.set(
+			"n",
+			"<leader>f",
+			require('fzf-lua').live_grep,
 			{ desc = "[S]earch by [G]rep" }
 		)
-		vim.keymap.set("n", "<leader>d", telescope_builtin.git_status, { desc = "[S]earch by [G]it" })
 
-		vim.keymap.set("n", "<leader>td", telescope_builtin.lsp_document_symbols, { desc = "[S]earch [S]ymbols" })
-
-		-- vim.keymap.set("n", "<leader>sh", telescope_builtin.help_tags, { desc = "[S]earch [H]elp" })
-		-- vim.keymap.set("n", "<leader>sw", telescope_builtin.grep_string, { desc = "[S]earch current [W]ord" })
-		-- vim.keymap.set('n', '<leader>sd', telescope_builtin.diagnostics, { desc = '[S]earch [D]iagnostics' })
-
-		vim.keymap.set("n", "<leader>k", ":Telescope file_browser path=%:p:h select_buffer=true<CR><esc>")
-
-		-- vim.keymap.set("n", "<leader>h", ":Telescope harpoon marks<cr>")
+		-- vim.keymap.set(
+		-- 	"n",
+		-- 	"<leader>g",
+		-- 	telescope.extensions.live_grep_args.live_grep_args,
+		-- 	{ desc = "[S]earch by [G]rep" }
+		-- )
+		--
+		-- vim.keymap.set("n", "<leader>k", ":Telescope file_browser path=%:p:h select_buffer=true<CR><esc>")
 	end,
 }
