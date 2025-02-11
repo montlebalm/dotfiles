@@ -51,11 +51,12 @@ return {
 			vim.keymap.set("n", "gT", vim.lsp.buf.type_definition, opts)
 			vim.keymap.set("n", "gs", vim.lsp.buf.signature_help, opts)
 			vim.keymap.set("n", "gr", vim.lsp.buf.rename, opts)
+			vim.keymap.set("n", "gR", vim.lsp.buf.references, opts)
 			vim.keymap.set("n", "<leader>ca", vim.lsp.buf.code_action, opts)
 
-			vim.keymap.set("n", "gR", function()
-				require("trouble").open("lsp_references")
-			end, opts)
+			-- vim.keymap.set("n", "gR", function()
+			-- 	require("trouble").open("lsp_references")
+			-- end, opts)
 			-- vim.keymap.set("n", "gT", function()
 			-- 	require("trouble").toggle("lsp_type_definitions")
 			-- end, opts)
@@ -120,6 +121,7 @@ return {
 				root_dir = require('lspconfig/util').root_pattern(".git"),
 			},
 			vimls = {},
+			yamlls = {},
 		}
 
 		local lspconfig = require("lspconfig")
