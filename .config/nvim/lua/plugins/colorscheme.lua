@@ -11,7 +11,7 @@ vim.cmd([[
 return {
 	{
 		"montlebalm/greybeard",
-		dir = "~/Developer/montlebalm/greybeard",
+		dir = "~/Developer/greybeard",
 		dev = true,
 		enabled = true,
 		priority = 1000,
