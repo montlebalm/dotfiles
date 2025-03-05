@@ -7,9 +7,17 @@
           "javascript",
           "javascriptreact",
           "typescript",
-          "typescriptreact"
+          "typescriptreact",
+          "svelte"
         ],
         "path": "./typescript.json"
+      },
+      {
+        "language": [
+          "javascriptreact",
+          "typescriptreact"
+        ],
+        "path": "./react.json"
       }
     ]
   }
