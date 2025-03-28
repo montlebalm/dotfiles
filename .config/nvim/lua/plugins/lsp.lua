@@ -21,14 +21,6 @@ return {
 			"antosha417/nvim-lsp-file-operations",
 			opts = {}
 		},
-
-		-- {
-		-- 	"pmizio/typescript-tools.nvim",
-		-- 	dependencies = {
-		-- 		"nvim-lua/plenary.nvim",
-		-- 		"neovim/nvim-lspconfig",
-		-- 	},
-		-- },
 	},
 
 	event = {
@@ -53,13 +45,6 @@ return {
 			vim.keymap.set("n", "gr", vim.lsp.buf.rename, opts)
 			vim.keymap.set("n", "gR", vim.lsp.buf.references, opts)
 			vim.keymap.set("n", "<leader>ca", vim.lsp.buf.code_action, opts)
-
-			-- vim.keymap.set("n", "gR", function()
-			-- 	require("trouble").open("lsp_references")
-			-- end, opts)
-			-- vim.keymap.set("n", "gT", function()
-			-- 	require("trouble").toggle("lsp_type_definitions")
-			-- end, opts)
 
 			vim.keymap.set("n", "<leader>af", vim.diagnostic.open_float, opts)
 			vim.keymap.set("n", "<leader>ap", function()
@@ -147,21 +132,6 @@ return {
 			},
 		})
 
-		-- --
-		-- -- typescript-tools
-		-- --
-		--
-		-- require("typescript-tools").setup({
-		-- 	on_attach = on_attach,
-		-- 	handlers = lsp_capabilities,
-		-- 	settings = {
-		-- 		tsserver_max_memory = 32768,
-		-- 		tsserver_file_preferences = {
-		-- 			importModuleSpecifierPreference = "non-relative",
-		-- 		},
-		-- 	},
-		-- })
-
 		--
 		-- Diagnostics
 		--
@@ -181,6 +151,7 @@ return {
 		-- Diagnostic text
 		vim.diagnostic.config({
 			virtual_text = false,
+			virtual_lines = false,
 			signs = true,
 			underline = true,
 			update_in_insert = false,
